@@ -9,15 +9,16 @@ export default function App() {
     <Router>
       <div>
         <Nav />
+
         <Switch>
-          <Route path="/project"></Route>
-          <ProjectPage /> 
+          <Route path="/project">
+            <ProjectPage />
           </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </div>
-    </Router >
-  );
+    </Router>
+  )
 }
