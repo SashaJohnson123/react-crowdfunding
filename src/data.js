@@ -23,7 +23,7 @@ export const oneProject = {
             amount: 100,
             comment: "A comment for the pledge", anonymous: false,
             supporter: 3,
-            project_id: 1,
+            project_id: 1
         },
     ],
 };
