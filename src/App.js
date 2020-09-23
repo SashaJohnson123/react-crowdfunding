@@ -9,7 +9,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Nav image={require()}/>
 
         <Switch>
           <Route path="/project/:id">

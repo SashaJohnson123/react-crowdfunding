@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Nav() {
+function Nav(props) {
+    const { image } = props;
     return (
-        <nav>
+        <div>
+            <img className="Logo" src={image} alt="Logo"/>
+        </div>
+        <div className="Menu">
             <Link to="/">Home</Link>
-        </nav >
+        </div>
     );
 }
 export default Nav;
