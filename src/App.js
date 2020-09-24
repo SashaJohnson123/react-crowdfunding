@@ -9,11 +9,14 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Nav image={require()}/>
+        <Nav image={require()} />
 
         <Switch>
           <Route path="/project/:id">
             <ProjectPage />
+          </Route>
+          <Route path="login">
+            <LoginPage />
           </Route>
           <Route path="/">
             <Home />
