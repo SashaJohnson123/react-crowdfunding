@@ -33,8 +33,10 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log({ credentials });
     if (credentials.username && credentials.password) {
       postData().then((response) => {
+        console.log({ response });
         window.localStorage.setItem("token", response.token);
         history.push("/");
       });
