@@ -16,7 +16,7 @@ export default function App() {
           <Route path="/project/:id">
             <ProjectPage />
           </Route>
-          <Route path="login">
+          <Route path="/login">
             <LoginPage />
           </Route>
           <Route path="/">
