@@ -4,8 +4,9 @@ function Nav(props) {
   const { image } = props;
   return (
     <div>
-      <img className="Logo" src={image} alt="Logo" />
-      <div css="#img-container"></div>
+      <div id="img-container">
+        <img className="Logo" src={image} alt="Logo" />
+      </div>
 
       <div className="Menu">
         <Link to="/">Home</Link>

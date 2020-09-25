@@ -7,8 +7,12 @@
 
 #img-container {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin: 30px;
   justify-content: flex-end;
+}
+
+#img-container > img {
+  width: 100%;
 }
