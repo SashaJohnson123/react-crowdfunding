@@ -1,6 +1,8 @@
 #project-list {
   display: grid;
   grid-template-columns: 30% 30% 30%;
+  justify-content: space-between;
+  margin: 30px;
   column-gap: 10px;
   row-gap: 10px;
   background-color: lightskyblue;
