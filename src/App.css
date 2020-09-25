@@ -1,8 +1,13 @@
 #project-list {
-  display: grid; 
-  grid-template-columns: 30% 30% 30%; 
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
   column-gap: 10px;
   row-gap: 10px;
-  }
+}
 
-  
+#img-container {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  justify-content: flex-end;
+}
