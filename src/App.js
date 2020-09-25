@@ -4,12 +4,13 @@ import "./App.css";
 import Nav from "./components/Nav/Nav";
 import Home from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
+import LoginPage from "./pages/Login";
 
 export default function App() {
   return (
     <Router>
       <div>
-        <Nav image={require("./src/Pics/13.png")} />
+        <Nav image={require("./Pics/13.png")} />
 
         <Switch>
           <Route path="/project/:id">
@@ -24,5 +25,5 @@ export default function App() {
         </Switch>
       </div>
     </Router>
-  )
+  );
 }
