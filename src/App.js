@@ -5,6 +5,9 @@ import Nav from "./components/Nav/Nav";
 import Home from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import LoginPage from "./pages/Login";
+import About from "./pages/About";
+import Subscribe from "./pages/Subscribe";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -19,8 +22,17 @@ export default function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/About">
+            <About />
+          </Route>
+          <Route path="/Subscribe">
+            <Subscribe />
+          </Route>
+          <Route path="/Contact">
+            <Contact />
           </Route>
         </Switch>
       </div>
