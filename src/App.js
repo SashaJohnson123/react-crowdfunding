@@ -19,12 +19,18 @@ export default function App() {
           <Route path="/project/:id">
             <ProjectPage />
           </Route>
+
           <Route path="/login">
             <LoginPage />
           </Route>
+
           <Route exact path="/">
             <Home />
           </Route>
+          <Route path="/Home">
+            <Home />
+          </Route>
+
           <Route path="/About">
             <About />
           </Route>
