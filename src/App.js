@@ -40,6 +40,9 @@ export default function App() {
           <Route path="/Contact">
             <Contact />
           </Route>
+          <Route path="/CreateProject">
+            <CreateProject />
+          </Route>
         </Switch>
       </div>
     </Router>
