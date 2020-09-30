@@ -52,63 +52,61 @@ function CreateProjectForm() {
     }
   };
   return (
-        <form>
-          <div>
-            <label htmlFor="title"> Title:</label>
-            <input
-              type="text"
-              id="title"
-              placeholder="Enter title"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="description"> Description:</label>
-            <input
-              type="text"
-              id="description"
-              placeholder="Enter descrption"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="is_open"> Project Open:</label>
-            <input
-              type="boolean"
-              id="is_open"
-              placeholder="Project is opened"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="date"> Date:</label>
-            <input
-              type="date"
-              id="date_created"
-              placeholder="date"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="goal"> Goal:</label>
-            <input
-              type="Number"
-              id="goal"
-              placeholder="Enter Goal"
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="image"> Image:</label>
-            <input type="url" id="image" onChange={handleChange} />
-          </div>
-          <button type="submit" onClick={handleSubmit}>
-            Create Project
-          </button>
-        </form>
-      );
-    }
+    <form>
+      <div>
+        <label htmlFor="title"> Title:</label>
+        <input
+          type="text"
+          id="title"
+          placeholder="Enter title"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="description"> Description:</label>
+        <input
+          type="text"
+          id="description"
+          placeholder="Enter descrption"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="is_open"> Project Open:</label>
+        <input
+          type="boolean"
+          id="is_open"
+          placeholder="Project is opened"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="date"> Date:</label>
+        <input
+          type="date"
+          id="date_created"
+          placeholder="date"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="goal"> Goal:</label>
+        <input
+          type="Number"
+          id="goal"
+          placeholder="Enter Goal"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="image"> Image:</label>
+        <input type="url" id="image" onChange={handleChange} />
+      </div>
+      <button type="submit" onClick={handleSubmit}>
+        Create Project
+      </button>
+    </form>
   );
 }
 
-export default LoginForm;
+export default CreateProjectForm;

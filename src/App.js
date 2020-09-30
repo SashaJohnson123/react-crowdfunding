@@ -8,6 +8,7 @@ import LoginPage from "./pages/Login";
 import About from "./pages/About";
 import Subscribe from "./pages/Subscribe";
 import Contact from "./pages/Contact";
+import CreateProject from "./pages/CreateProject";
 
 export default function App() {
   return (
