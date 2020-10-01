@@ -42,7 +42,7 @@ function CreateProjectForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ credentials });
+    console.log(credentials);
     if (true) {
       postData().then((response) => {
         console.log({ response });
