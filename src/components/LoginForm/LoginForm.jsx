@@ -33,10 +33,14 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ credentials });
+    console.log(credentials);
     if (credentials.username && credentials.password) {
       postData().then((response) => {
-        console.log({ response });
+        console.log(response.token);
+        if (!response.token) {
+          console.error("Unabled to fetch token")
+          return;
+        }
         window.localStorage.setItem("token", response.token);
         history.push("/");
       });

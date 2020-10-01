@@ -23,8 +23,10 @@ function CreateProjectForm() {
 
   const postData = async () => {
     const token = window.localStorage.getItem("token");
+    console.log(token);
+    console.log(credentials)
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}api-token-auth/projects/`,
+      `${process.env.REACT_APP_API_URL}projects`,
       {
         method: "post",
         headers: {
