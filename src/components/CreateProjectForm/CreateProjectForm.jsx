@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+const categories = ["Dogs", "Turtles", "Whales"];
 
 function CreateProjectForm() {
   const [credentials, setCredentials] = useState({
@@ -72,12 +73,11 @@ function CreateProjectForm() {
       </div>
       <div>
         <label htmlFor="category"> Category:</label>
-        <input
-          type="text"
-          id="category"
-          placeholder="Enter Project Category"
-          onChange={handleChange}
-        />
+        <select name="categories" id="categories">
+          {categories.map((category) => (
+            <option value={category}>{category}</option>
+          ))}
+        </select>
       </div>
       <div>
         <label htmlFor="is_open"> Project Open:</label>
