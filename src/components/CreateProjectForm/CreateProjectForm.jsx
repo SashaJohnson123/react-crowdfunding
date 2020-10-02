@@ -24,21 +24,18 @@ function CreateProjectForm() {
   const postData = async () => {
     const token = window.localStorage.getItem("token");
     console.log(token);
-    console.log(credentials)
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}projects`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify({
-          ...credentials,
-          date_created: new Date(credentials.date_created).toISOString,
-        }),
-      }
-    );
+    console.log(credentials);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}projects/`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify({
+        ...credentials,
+        date_created: new Date(credentials.date_created).toISOString,
+      }),
+    });
     return response.json();
   };
 
@@ -47,7 +44,7 @@ function CreateProjectForm() {
     console.log(credentials);
     if (true) {
       postData().then((response) => {
-        console.log({ response });
+        console.log(response);
         // window.localStorage.setItem("token", response.token);
         history.push("/");
       });
