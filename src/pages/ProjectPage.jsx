@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Moment from "react-moment";
+
 function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
   const { id } = useParams();
@@ -19,7 +21,10 @@ function ProjectPage() {
     <div>
       <h2>{projectData.title}</h2>
       <h3>{projectData.description}</h3>
-      <h3>Created at: {projectData.date_created}</h3>
+      <h3>
+        Created at:
+        <Moment format="DD/MM/YYY">{projectData.created_date}</Moment>
+      </h3>
       <h3>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</h3>
       <h3>Pledges:</h3>
       <ul>
