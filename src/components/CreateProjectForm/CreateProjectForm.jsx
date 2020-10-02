@@ -57,7 +57,7 @@ function CreateProjectForm() {
         <input
           type="text"
           id="title"
-          placeholder="Enter title"
+          placeholder="Enter Project Title"
           onChange={handleChange}
         />
       </div>
@@ -66,7 +66,16 @@ function CreateProjectForm() {
         <input
           type="text"
           id="description"
-          placeholder="Enter descrption"
+          placeholder="Enter Project Details"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="category"> Category:</label>
+        <input
+          type="text"
+          id="category"
+          placeholder="Enter Project Category"
           onChange={handleChange}
         />
       </div>
@@ -75,7 +84,7 @@ function CreateProjectForm() {
         <input
           type="boolean"
           id="is_open"
-          placeholder="Project is opened"
+          placeholder="Project is Open"
           onChange={handleChange}
         />
       </div>
@@ -93,7 +102,7 @@ function CreateProjectForm() {
         <input
           type="Number"
           id="goal"
-          placeholder="Enter Goal"
+          placeholder="Enter Target Amount"
           onChange={handleChange}
         />
       </div>
