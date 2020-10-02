@@ -24,6 +24,7 @@ function Nav(props) {
         <Link to="/About">About</Link>
         <Link to="/Subscribe">Subscribe</Link>
         <Link to="/Contact">Contact</Link>
+        <Link to="/createproject/">Add Your Local Project</Link>
 
         {!loggedIn ? (
           <Link className="/login">Login</Link>
