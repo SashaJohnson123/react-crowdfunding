@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Pledges() {
+function Pledges({ projectData }) {
   // variables
-  const [credentials, setCredentials] = useState({
-    project_id: "",
+  const [pledge, setPledge] = useState({
     amount: "",
     comment: "",
-    supporter_id: "",
-    anonymous: "",
+    anonymous: false,
   });
 
   const history = useHistory();
   // methods
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setCredentials((prevCredentials) => ({
-      ...prevCredentials,
+    setPledge((newPledge) => ({
+      ...newPledge,
       [id]: value,
     }));
   };
+
   const postData = async () => {
     const token = window.localStorage.getItem("token");
+    pledge.project_id = projectData.id;
+    debugger;
     const response = await fetch(`${process.env.REACT_APP_API_URL}pledges/`, {
       method: "post",
       headers: {
@@ -29,7 +30,7 @@ function Pledges() {
         Authorization: `Token ${token}`,
       },
       body: JSON.stringify({
-        ...credentials,
+        ...pledge,
       }),
     });
     return response.json();
@@ -47,7 +48,7 @@ function Pledges() {
   //template
   return (
     <form className="PledgesForm">
-      <div>
+      {/* <div>
         <label htmlFor="project_id"> Project:</label>
         <input
           type="number"
@@ -55,7 +56,7 @@ function Pledges() {
           placeholder="Enter title"
           onChange={handleChange}
         />
-      </div>
+      </div> */}
       <div>
         <label htmlFor="amount"> Goal:</label>
         <input
@@ -74,7 +75,7 @@ function Pledges() {
           onChange={handleChange}
         />
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="supporter_id"> Supporter:</label>
         <input
           type="number"
@@ -82,10 +83,10 @@ function Pledges() {
           placeholder="Supporter ID"
           onChange={handleChange}
         />
-      </div>
+      </div> */}
       <div>
         <label htmlFor="anonymous"> Anonymous</label>
-        <input type="checkbox" id="anonymous" onChange={handleChange} />
+        <input type="checkbox" id="anonymous" onClick={handleChange} />
       </div>
       <button className="PledgesButton" type="pledge" onClick={handleSubmit}>
         Pledge
