@@ -23,7 +23,7 @@ function ProjectPage() {
       <h3>{projectData.description}</h3>
       <h3>
         Created at:
-        <Moment format="DD/MM/YYY">{projectData.created_date}</Moment>
+        <Moment format="DD/MM/YYYY">{projectData.created_date}</Moment>
       </h3>
       <h3>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</h3>
       <h3>Pledges:</h3>
@@ -36,6 +36,8 @@ function ProjectPage() {
           );
         })}
       </ul>
+        
+
     </div>
   );
 }
