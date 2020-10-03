@@ -21,7 +21,6 @@ function ProjectPage() {
     <div>
       <h2>{projectData.title}</h2>
       <h3>{projectData.description}</h3>
-      {/* <h3>Created at: {projectData.date_created}</h3> */}
       <h3>
         Created at:
         <Moment format="DD/MM/YYYY">{projectData.created_date}</Moment>
@@ -32,7 +31,8 @@ function ProjectPage() {
         {projectData.pledge.map((pledgeData, key) => {
           return (
             <li>
-              ${pledgeData.amount} from {pledgeData.supporter_id}
+              ${pledgeData.amount} from{" "}
+              {pledgeData.anonymous ? "anonymous" : pledgeData.supporter_id}
             </li>
           );
         })}
