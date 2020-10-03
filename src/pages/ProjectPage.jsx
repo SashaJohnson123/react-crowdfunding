@@ -1,44 +1,96 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Moment from "react-moment";
 
-function ProjectPage() {
-  const [projectData, setProjectData] = useState({ pledge: [] });
-  const { id } = useParams();
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        setProjectData(data);
-      });
-  }, []);
-
-  console.log(projectData);
-
+function Pledges() {
+  // variables
+  const [credentials, setCredentials] = useState({
+    project_id: "",
+    amount: "",
+    comment: "",
+    supporter_id: "",
+    anonymous: "",
+  });
+  const history = useHistory();
+  // methods
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [id]: value,
+    }));
+  };
+  const postData = async () => {
+    const token = window.localStorage.getItem("token");
+    const response = await fetch(`${process.env.REACT_APP_API_URL}pledges/`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+      body: JSON.stringify({
+        ...credentials,
+      }),
+    });
+    return response.json();
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (true) {
+      postData()
+        .then((response) => {
+          history.push("/");
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+  //template
   return (
-    <div>
-      <h2>{projectData.title}</h2>
-      <h3>{projectData.description}</h3>
-      <h3>
-        Created at:
-        <Moment format="DD/MM/YYYY">{projectData.created_date}</Moment>
-      </h3>
-      <h3>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</h3>
-      <h3>Pledges:</h3>
-      <ul>
-        {projectData.pledge.map((pledgeData, key) => {
-          return (
-            <li>
-              ${pledgeData.amount} from {pledgeData.supporter_id}
-            </li>
-          );
-        })}
-      </ul>
-        
-
-    </div>
+    <form className="PledgesForm">
+      <div>
+        <label htmlFor="project_id"> Project:</label>
+        <input
+          type="number"
+          id="project_id"
+          placeholder="Enter title"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="amount"> Goal:</label>
+        <input
+          type="Number"
+          id="amount"
+          placeholder="Enter amount"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="comment"> Comment:</label>
+        <input
+          type="text"
+          id="comment"
+          placeholder="Enter comment"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="supporter_id"> Supporter:</label>
+        <input
+          type="number"
+          id="supporter_id"
+          placeholder="supporter id"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="anonymous"> Anonymous</label>
+        <input type="boolean" id="anonymous" onChange={handleChange} />
+      </div>
+      <button className="PledgesButton" type="pledge" onClick={handleSubmit}>
+        Pledge
+      </button>
+    </form>
   );
 }
-export default ProjectPage;
+export default Pledges;
