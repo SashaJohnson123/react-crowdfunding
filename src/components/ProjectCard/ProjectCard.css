@@ -6,6 +6,11 @@
   color: black;
 }
 
+.project-card a {
+  text-decoration: none;
+  color: black;
+}
+
 .project-card img {
   width: 100%;
   height: 300px;
