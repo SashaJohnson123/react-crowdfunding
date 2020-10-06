@@ -1,56 +1,66 @@
-// import React, { useState } from "react";
+import React, { useState } from "react";
 
-// function Contact() {
-//   const [contactInfo, setContactInfo] = useState({
-//     name: "",
-//     email: "",
-//     message: ""
-//   });
-//   const [formSubmitted, setFormSubmitted] = useState(false)
+function Subscribe() {
+  const [subscribeInfo, setSubscribeInfo] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-//   const handleChange = (e) => {
-//     const { id, value } = e.target;
-//     setContactInfo((prevContactInfo) => ({
-//       ...prevContactInfo,
-//       [id]: value,
-//     }));
-//   };
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setSubscribeInfo((prevSubscribeInfo) => ({
+      ...prevSubscribeInfo,
+      [id]: value,
+    }));
+  };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log(contactInfo);
-//     if (contactInfo.name && contactInfo.email && contactInfo.message) {
-//       // To DO: Connect to a mail sending package e.g. SendGrid
-//       console.log("I have all the infomation I need to submit a contact form");
-//       setContactInfo({
-//         name: "",
-//         email: "",
-//         message: ""
-//       })
-//       setFormSubmitted(true);
-//     }
-//   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(subscribeInfo);
+    if (subscribeInfo.name && subscribeInfo.email) {
+      // To DO: Connect to a mail sending package e.g. SendGrid
+      console.log("I have all the infomation I need to submit a contact form");
+      setSubscribeInfo({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setFormSubmitted(true);
+    }
+  };
 
-//   function Subscribe() {
-//     return (
-//       <header>Subscribe here!</header>
-//       <div>
-//         <div>
-//           <img src="linkedin.png" alt=LinkedIn.">
-//         </div>
-//         <div>
-//             <h1>LinkedIn</h1>
-//             <p>URL: linkedin.com/ecoocean</p>
-//         </div>
-//         <div>
-//           <img src="instagram.png" alt=Instagram.">
-//         </div>
-//         <div>
-//             <h2>Instagram</h2>
-//             <p>IG handle: ecoocean</p>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   export default Subscribe;
+  return (
+    <div>
+      <h1>Subscribe Here!</h1>
+      <div>
+        <div class="form-item">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            onChange={handleChange}
+          />
+        </div>
+        <div class="form-item">
+          <label for="mail">Email</label>
+          <input type="email" id="email" name="email" onChange={handleChange} />
+        </div>
+        <div class="form-item">
+          <button type="Submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+      </div>
+      {formSubmitted ? (
+        <p>Your contact has successfully been submitted</p>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+}
+export default Subscribe;
