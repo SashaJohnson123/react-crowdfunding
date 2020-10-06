@@ -43,11 +43,18 @@ function Subscribe() {
             name="name"
             required
             onChange={handleChange}
+            value={subscribeInfo.name}
           />
         </div>
         <div class="form-item">
           <label for="mail">Email</label>
-          <input type="email" id="email" name="email" onChange={handleChange} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={subscribeInfo.email}
+          />
         </div>
         <div class="form-item">
           <button type="Submit" onClick={handleSubmit}>

@@ -48,11 +48,18 @@ function Contact() {
             name="name"
             required
             onChange={handleChange}
+            value={contactInfo.name}
           />
         </div>
         <div class="form-item">
           <label for="mail">Email</label>
-          <input type="email" id="email" name="email" onChange={handleChange} />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={contactInfo.email}
+          />
         </div>
         <div class="form-item">
           <label for="message">Message</label>
@@ -60,6 +67,7 @@ function Contact() {
             id="message"
             name="message"
             onChange={handleChange}
+            value={contactInfo.message}
           ></textarea>
         </div>
         <div class="form-item">
