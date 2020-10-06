@@ -63,11 +63,7 @@ function Contact() {
           </button>
         </div>
       </div>
-      {formSubmitted ? (
-        <p>Your contact has successfully been submitted</p>
-      ) : (
-        <></>
-      )}
+      {formSubmitted ? <p>Your message has been submitted</p> : <></>}
     </div>
   );
 }

@@ -56,7 +56,7 @@ function Subscribe() {
         </div>
       </div>
       {formSubmitted ? (
-        <p>Your contact has successfully been submitted</p>
+        <p>You have successfully subscribed to EcoOcean</p>
       ) : (
         <></>
       )}
