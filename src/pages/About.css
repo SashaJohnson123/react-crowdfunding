@@ -1,7 +1,11 @@
-.div {
-  width: 100%;
+.a {
+  width: 100px;
+  border: 1px solid black;
+  box-shadow: 0px 0px 5px gray;
+  background-color: lightblue;
+  color: black;
   height: 300px;
   object-fit: cover;
   display: flex;
-  flex: center;
+  margin-block: 100px;
 }
