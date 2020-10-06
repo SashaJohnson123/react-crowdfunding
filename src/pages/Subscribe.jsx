@@ -33,7 +33,7 @@ function Subscribe() {
 
   return (
     <div>
-      <h1>Subscribe Here!</h1>
+      <h1>Subscribe here:</h1>
       <div>
         <div class="form-item">
           <label for="name">Name</label>

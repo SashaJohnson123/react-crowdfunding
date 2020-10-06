@@ -4,7 +4,7 @@ import "./About.css";
 function About() {
   return (
     <div className="page-container">
-      <h1>About Us</h1>
+      <h1>About us:</h1>
       <p>
         EcoOcean is a crowdfunding organisation that connects local projects on
         the ground requiring funding, to those individuals or organisations that
