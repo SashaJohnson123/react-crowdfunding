@@ -28,6 +28,11 @@ function Contact() {
         message: "",
       });
       setFormSubmitted(true);
+      setContactInfo({
+        name: "",
+        email: "",
+        message: "",
+      });
     }
   };
 
