@@ -7,6 +7,14 @@ function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
   const { id } = useParams();
 
+  const onDeleteClick = () => {
+    const shouldDelete = window.confirm(
+      "Are you sure you'd like to delete this project?"
+    );
+    if (!shouldDelete) return; // if user clicks cancel
+    // send delete request to API using fetch
+  };
+
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
       .then((results) => {
@@ -15,13 +23,6 @@ function ProjectPage() {
       .then((data) => {
         setProjectData(data);
       });
-
-  const onDeleteClick = () => {
-  const shouldDelete = window.confirm("Are you sure you'd like to delete this project?")
-    if (!shouldDelete) return // if user clicks cancel
-        // send delete request to API using fetch
-    ...
-    }
   }, []);
 
   return (
@@ -45,7 +46,7 @@ function ProjectPage() {
         })}
       </ul>
       <Pledges projectData={projectData} />
-      <button onClick={onEditClick}>Edit</button>
+      {/* <button onClick={onEditClick}>Edit</button> */}
       <button onClick={onDeleteClick}>Delete</button>
     </div>
   );
