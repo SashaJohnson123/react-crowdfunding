@@ -25,7 +25,7 @@ export default function App() {
             </Route>
 
             <Route path="/project/edit/:id">
-              <Contact /> // Put new ProjectEditPage
+              <ProjectEditPage />
             </Route>
 
             <Route path="/login">
