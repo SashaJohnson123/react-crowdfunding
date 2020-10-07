@@ -69,10 +69,14 @@ function ProjectPage() {
         </div>
       )}
       <Pledges projectData={projectData} />
-      <Link to={`/project/edit/${projectData.id}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={onDeleteClick}>Delete</button>
+      {projectData.owner === userId && (
+        <div>
+          <Link to={`/project/edit/${projectData.id}`}>
+            <button>Edit</button>
+          </Link>
+          <button onClick={onDeleteClick}>Delete</button>
+        </div>
+      )}
     </div>
   );
 }
