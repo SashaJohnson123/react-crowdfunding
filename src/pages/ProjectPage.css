@@ -3,13 +3,7 @@
   height: 100%;
 }
 
-p {
+.project-container p {
   width: 100%;
-  border: 1px solid black;
-  box-shadow: 0px 0px 5px gray;
-  background-color: lightblue;
   color: black;
-  object-fit: cover;
-  display: flex;
-  padding: 15px;
 }

@@ -20,8 +20,12 @@ export default function App() {
           <Nav image={require("./Pics/13.png")} />
 
           <Switch>
-            <Route path="/project/:id">
+            <Route exact path="/project/:id">
               <ProjectPage />
+            </Route>
+
+            <Route path="/project/edit/:id">
+              <Contact /> // Put new ProjectEditPage
             </Route>
 
             <Route path="/login">
