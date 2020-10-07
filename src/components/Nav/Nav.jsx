@@ -20,7 +20,7 @@ function Nav(props) {
   return (
     <nav>
       <div className="Menu">
-        <Link to="/Home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/About">About</Link>
         <Link to="/Subscribe">Subscribe</Link>
         <Link to="/Contact">Contact</Link>

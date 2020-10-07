@@ -43,6 +43,7 @@ function LoginForm() {
           return;
         }
         window.localStorage.setItem("token", response.token);
+        window.localStorage.setItem("userName", credentials.username);
         history.push("/");
       });
     }

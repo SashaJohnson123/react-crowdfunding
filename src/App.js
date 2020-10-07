@@ -36,9 +36,6 @@ export default function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/Home">
-              <Home />
-            </Route>
 
             <Route path="/About">
               <About />

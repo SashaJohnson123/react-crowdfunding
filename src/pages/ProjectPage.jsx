@@ -6,6 +6,7 @@ import "./ProjectPage.css";
 
 function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
+  const [userId, setUserId] = useState(undefined);
   const { id } = useParams();
 
   // Hide the Edit/ Delete Buttons: projectData.can_edit
@@ -26,6 +27,18 @@ function ProjectPage() {
       .then((data) => {
         setProjectData(data);
       });
+
+    // get list of users
+    fetch(`${process.env.REACT_APP_API_URL}users/`)
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        const loggedInUser = data.filter(
+          (user) => user.username === window.localStorage.getItem("userName")
+        );
+        setUserId(loggedInUser[0].id);
+      });
   }, []);
 
   return (
@@ -38,18 +51,22 @@ function ProjectPage() {
         <Moment format="  DD/MM/YYYY">{projectData.created_date}</Moment>
       </p>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
-      <p>Pledges:</p>
-      <ul>
-        {projectData.pledge.map((pledgeData, key) => {
-          return (
-            <li key={key}>
-              ${pledgeData.amount} from{" "}
-              {pledgeData.anonymous ? "anonymous" : pledgeData.supporter_id}
-            </li>
-          );
-        })}
-      </ul>
-      <Pledges projectData={projectData} />
+      {projectData.owner === userId && (
+        <div>
+          <p>Pledges:</p>
+          <ul>
+            {projectData.pledge.map((pledgeData, key) => {
+              return (
+                <li key={key}>
+                  ${pledgeData.amount} from{" "}
+                  {pledgeData.anonymous ? "anonymous" : pledgeData.supporter_id}
+                </li>
+              );
+            })}
+          </ul>
+          <Pledges projectData={projectData} />
+        </div>
+      )}
       <Link to={`/project/edit/${projectData.id}`}>
         <button>Edit</button>
       </Link>
