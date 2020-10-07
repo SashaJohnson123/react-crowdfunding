@@ -56,6 +56,7 @@ function LoginForm() {
           id="username"
           placeholder="Enter username"
           onChange={handleChange}
+          value={credentials.username}
         ></input>
       </div>
       <div>
@@ -65,6 +66,7 @@ function LoginForm() {
           id="email"
           placeholder="Enter email"
           onChange={handleChange}
+          value={credentials.email}
         ></input>
       </div>
       <div>
@@ -74,6 +76,7 @@ function LoginForm() {
           id="password"
           placeholder="Enter password"
           onChange={handleChange}
+          value={credentials.password}
         ></input>
       </div>
       <button type="Submit" onClick={handleSubmit}>

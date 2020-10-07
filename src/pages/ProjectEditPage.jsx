@@ -66,7 +66,16 @@ function ProjectEditPage() {
           value={projectData.title}
         />
       </div>
-      <h3>{projectData.description}</h3>
+      <div>
+        <label htmlFor="description"> Description:</label>
+        <input
+          type="text"
+          id="description"
+          placeholder="Enter Project Details"
+          onChange={handleChange}
+          value={projectData.description}
+        />
+      </div>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
       <button type="Submit" onClick={handleSubmit}>
         Save
@@ -78,11 +87,6 @@ function ProjectEditPage() {
 export default ProjectEditPage;
 
 // NEED TO DO:
-// 1. Add link to createProject Page that links to new Edit Page component;
-// 2. In your return method, all inputs should have a default value;
-// 3. A Save button that posts the data back to your endpoint and saves the new changes;
-// 4. if save works (success) then redirect user back to /project/id
-
 // 1. Create new Edit Project page component
 // 2. Add need route to App.js
 // 3. Add link to createProject Page that links to new Edit Page component
