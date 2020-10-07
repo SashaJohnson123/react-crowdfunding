@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import Moment from "react-moment";
-import Pledges from "../components/Pledges/Pledges";
 import "./ProjectPage.css";
 
 function ProjectEditPage() {
@@ -31,9 +30,15 @@ function ProjectEditPage() {
     fetch(`${process.env.REACT_APP_API_URL}projects/edit/${id}`)
       .then((results) => {
         return results.json();
+        title.results.title,
+        description.results.description,
+        is_open.results.is_open,
       })
       .then((data) => {
         setProjectData(data);
+        title.data.title,
+        description.data.description,
+        is_open.data.is_open,
       });
   }, []);
 
@@ -41,23 +46,7 @@ function ProjectEditPage() {
     <div className="project-container">
       <h2>{projectData.title}</h2>
       <h3>{projectData.description}</h3>
-      <p>
-        Created at:
-        <Moment format="  DD/MM/YYYY">{projectData.created_date}</Moment>
-      </p>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
-      <p>Pledges:</p>
-      <ul>
-        {projectData.pledge.map((pledgeData, key) => {
-          return (
-            <li>
-              ${pledgeData.amount} from{" "}
-              {pledgeData.anonymous ? "anonymous" : pledgeData.supporter_id}
-            </li>
-          );
-        })}
-      </ul>
-      <Pledges projectData={projectData} />
       <Link to={`/project/edit/${projectData.id}`}>
         <button>Edit</button>
       </Link>
@@ -81,7 +70,6 @@ export default ProjectEditPage;
 // 4. Within edit project page component
 
 // 4a)  State
-
 // {
 //   "id": 1,
 //     "title": "Project Dog",
@@ -92,7 +80,7 @@ export default ProjectEditPage;
 
 // 4b) useEfects that fetchs the project id and sets the State
 
-// awiat fetch (....).then(response) {
+// await fetch (....).then(response) {
 //     setProjectEdit({
 //         title: response.title,
 //         description: response:description
@@ -100,9 +88,7 @@ export default ProjectEditPage;
 // }
 
 // 4c) In your return method, all inputs should ahve a devafult value
-
 // <input value={projectEdit.title} onChange={handleOnChange} />
 
 // 4d) A Save button that posts the data back to your endpoint and saves the new changes
-
 // -- if save works (sucess) then redirect user back to /project/id
