@@ -8,6 +8,8 @@ function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
   const { id } = useParams();
 
+  // Hide the Edit/ Delete Buttons: projectData.can_edit
+
   const onDeleteClick = () => {
     const shouldDelete = window.confirm(
       "Are you sure you'd like to delete this project?"
