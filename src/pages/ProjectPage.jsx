@@ -11,6 +11,8 @@ function ProjectPage() {
 
   // Hide the Edit/ Delete Buttons: projectData.can_edit
 
+  // Ophelie code
+
   const onDeleteClick = () => {
     const shouldDelete = window.confirm(
       "Are you sure you'd like to delete this project?"
