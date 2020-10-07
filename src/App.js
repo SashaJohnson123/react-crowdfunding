@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import CreateProject from "./pages/CreateProject";
 import Error404 from "./components/Error404/Error404";
 import Socials from "./components/Socials/Socials";
+import ProjectEditPage from "./pages/ProjectEditPage";
 
 export default function App() {
   return (

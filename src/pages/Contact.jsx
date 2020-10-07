@@ -22,11 +22,6 @@ function Contact() {
     if (contactInfo.name && contactInfo.email && contactInfo.message) {
       // To DO: Connect to a mail sending package e.g. SendGrid
       console.log("I have all the infomation I need to submit a contact form");
-      setContactInfo({
-        name: "",
-        email: "",
-        message: "",
-      });
       setFormSubmitted(true);
       setContactInfo({
         name: "",

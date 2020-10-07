@@ -4,53 +4,73 @@ import Moment from "react-moment";
 import "./ProjectPage.css";
 
 function ProjectEditPage() {
-  const [projectData, setProjectData] = useState({ pledge: [] });
+  const [projectData, setProjectData] = useState({});
   const { id } = useParams();
-
-  const [credentials, editCredentials] = useState({
-    id: 1,
-    title: "Project Dog",
-    description:
-      "TEST: An enormous dust cloud has arisen as a result of nearby mining activities. Alarmingly, all wildlife and most importantly, numerous safe-haven protected dog shelters are at immediate risk!",
-    goal: 500,
-    is_open: true,
-  });
 
   const history = useHistory();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    editCredentials((prevCredentials) => ({
-      ...prevCredentials,
+    setProjectData((prevData) => ({
+      ...prevData,
       [id]: value,
     }));
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postData().then((response) => {
+      console.log(response);
+      history.push(`/project/${id}`);
+    });
+  };
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}projects/edit/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
       .then((results) => {
         return results.json();
-        title.results.title,
-        description.results.description,
-        is_open.results.is_open,
       })
       .then((data) => {
         setProjectData(data);
-        title.data.title,
-        description.data.description,
-        is_open.data.is_open,
       });
   }, []);
 
+  const postData = async () => {
+    const token = window.localStorage.getItem("token");
+    console.log(token);
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}projects/${id}`,
+      {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify({
+          title: projectData.title,
+        }),
+      }
+    );
+    return response.json();
+  };
+
   return (
     <div className="project-container">
-      <h2>{projectData.title}</h2>
+      <div class="form-item">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          onChange={handleChange}
+          value={projectData.title}
+        />
+      </div>
       <h3>{projectData.description}</h3>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
-      <Link to={`/project/edit/${projectData.id}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={onDeleteClick}>Delete</button>
+      <button type="Submit" onClick={handleSubmit}>
+        Save
+      </button>
     </div>
   );
 }

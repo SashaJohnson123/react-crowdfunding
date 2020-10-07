@@ -60,7 +60,7 @@ function Pledges({ projectData }) {
         />
       </div> */}
       <div>
-        <label htmlFor="amount"> Goal:</label>
+        <label htmlFor="amount"> Amount:</label>
         <input
           type="Number"
           id="amount"

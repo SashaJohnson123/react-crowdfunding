@@ -30,6 +30,7 @@ function ProjectPage() {
     <div className="project-container">
       <h2>{projectData.title}</h2>
       <h3>{projectData.description}</h3>
+      <h3>Target: ${projectData.goal}</h3>
       <p>
         Created at:
         <Moment format="  DD/MM/YYYY">{projectData.created_date}</Moment>
@@ -39,7 +40,7 @@ function ProjectPage() {
       <ul>
         {projectData.pledge.map((pledgeData, key) => {
           return (
-            <li>
+            <li key={key}>
               ${pledgeData.amount} from{" "}
               {pledgeData.anonymous ? "anonymous" : pledgeData.supporter_id}
             </li>
