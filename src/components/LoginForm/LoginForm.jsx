@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 function LoginForm() {
   const [credentials, setCredentials] = useState({
     username: "",
+    email: "",
     password: "",
   });
 
@@ -38,7 +39,7 @@ function LoginForm() {
       postData().then((response) => {
         console.log(response.token);
         if (!response.token) {
-          console.error("Unabled to fetch token")
+          console.error("Unabled to fetch token");
           return;
         }
         window.localStorage.setItem("token", response.token);
@@ -54,6 +55,15 @@ function LoginForm() {
           type="text"
           id="username"
           placeholder="Enter username"
+          onChange={handleChange}
+        ></input>
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="text"
+          id="email"
+          placeholder="Enter email"
           onChange={handleChange}
         ></input>
       </div>
