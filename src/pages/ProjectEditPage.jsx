@@ -47,6 +47,9 @@ function ProjectEditPage() {
         },
         body: JSON.stringify({
           title: projectData.title,
+          description: projectData.description,
+          goal: projectData.goal,
+          is_open: projectData.is_open,
         }),
       }
     );
@@ -76,7 +79,26 @@ function ProjectEditPage() {
           value={projectData.description}
         />
       </div>
-      <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
+      <div>
+        <label htmlFor="goal"> Target:</label>
+        <input
+          type="Number"
+          id="goal"
+          placeholder="Enter Target Amount"
+          onChange={handleChange}
+          value={projectData.goal}
+        />
+      </div>
+      <div>
+        <label htmlFor="is_open"> Project Open:</label>
+        <input
+          type="boolean"
+          id="is_open"
+          placeholder="Project is Open"
+          onChange={handleChange}
+          value={projectData.is_open}
+        />
+      </div>
       <button type="Submit" onClick={handleSubmit}>
         Save
       </button>
