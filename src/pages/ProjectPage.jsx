@@ -66,9 +66,9 @@ function ProjectPage() {
               );
             })}
           </ul>
-          <Pledges projectData={projectData} />
         </div>
       )}
+      <Pledges projectData={projectData} />
       <Link to={`/project/edit/${projectData.id}`}>
         <button>Edit</button>
       </Link>
