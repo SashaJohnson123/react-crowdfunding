@@ -8,7 +8,7 @@ function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
   // const [userId, setUserId] = useState(undefined);
   const { id } = useParams();
-  
+
   // Hide the Edit/ Delete Buttons: projectData.can_edit
 
   // Ophelie code
@@ -23,7 +23,7 @@ function ProjectPage() {
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
-    const headers = token ? : { Authorization: `Token ${token}` } : {};
+    const headers = token ? { Authorization: `Token ${token}` } : {};
     fetch(`${process.env.REACT_APP_API_URL}projects/${id}`, { headers })
       .then((results) => {
         return results.json();
