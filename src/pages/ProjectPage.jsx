@@ -6,7 +6,7 @@ import "./ProjectPage.css";
 
 function ProjectPage() {
   const [projectData, setProjectData] = useState({ pledge: [] });
-  const [userId, setUserId] = useState(undefined);
+  // const [userId, setUserId] = useState(undefined);
   const { id } = useParams();
 
   // Hide the Edit/ Delete Buttons: projectData.can_edit
@@ -30,17 +30,17 @@ function ProjectPage() {
         setProjectData(data);
       });
 
-    // get list of users
-    fetch(`${process.env.REACT_APP_API_URL}users/`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        const loggedInUser = data.filter(
-          (user) => user.username === window.localStorage.getItem("userName")
-        );
-        setUserId(loggedInUser[0].id);
-      });
+    // // get list of users
+    // fetch(`${process.env.REACT_APP_API_URL}users/`)
+    //   .then((results) => {
+    //     return results.json();
+    //   })
+    //   .then((data) => {
+    //     const loggedInUser = data.filter(
+    //       (user) => user.username === window.localStorage.getItem("userName")
+    //     );
+    //     setUserId(loggedInUser[0].id);
+    //   });
   }, []);
 
   return (
@@ -53,7 +53,7 @@ function ProjectPage() {
         <Moment format="  DD/MM/YYYY">{projectData.created_date}</Moment>
       </p>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
-      {projectData.owner === userId && (
+      {pprojectData.can_edit && (
         <div>
           <p>Pledges:</p>
           <ul>
@@ -69,7 +69,7 @@ function ProjectPage() {
         </div>
       )}
       <Pledges projectData={projectData} />
-      {projectData.owner === userId && (
+      {projectData.can_edit && (
         <div>
           <Link to={`/project/edit/${projectData.id}`}>
             <button>Edit</button>
