@@ -55,7 +55,7 @@ function ProjectPage() {
         <Moment format="  DD/MM/YYYY">{projectData.created_date}</Moment>
       </p>
       <p>{`Status: ${projectData.is_open ? "Open" : "Closed"}`}</p>
-      {pprojectData.can_edit && (
+      {projectData.can_edit && (
         <div>
           <p>Pledges:</p>
           <ul>
