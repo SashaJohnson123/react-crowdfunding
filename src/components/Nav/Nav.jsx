@@ -27,7 +27,7 @@ function Nav(props) {
         <Link to="/createproject/">Add Your Local Project</Link>
 
         {!loggedIn ? (
-          <Link className="/login">Login</Link>
+          <Link to="/login">Login</Link>
         ) : (
           <Link onClick={logout}>Logout</Link>
         )}
